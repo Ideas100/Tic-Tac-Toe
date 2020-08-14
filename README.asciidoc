@@ -1,0 +1,28 @@
+= Tic-Tac-Toe
+
+ Implemented Tic-Tac-Toe game using Object Oriented Programming in C.
+ 
+== Build
+
+The game requires ncurses library dependencies.
+
+------
+# apt install libncurses5-dev
+------
+
+To build and run.
+
+------
+$ make
+$ ./tic-tac-toe
+------
+
+== Note
+
+ * Inputs :
+   - [1 - 9] : Player Input.
+   - r 	     : Restart.
+
+== Credits
+
+ * https://github.com/bravegnu.
