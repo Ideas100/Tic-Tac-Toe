@@ -1,24 +1,17 @@
-CFLAGS = -I ./include
-LIBS = -lncurses
-OBJS = src/game.o src/logic.o src/view.o src/run.o
+#   Gen-make-1.0.0
+#   https://github.com/Ideas100/Gen-make
+#
 
+CC       := gcc
+CFLAGS   := -I include
+LDLIBS   := -lncurses
+SRCS     := $(addprefix src/, logic.c run.c game.c view.c)
+OBJS     := $(SRCS:.c=.o)
 
-all: out
-	cp src/out tic-tac-toe
+all: $(OBJS)
+	$(CC) $(OBJS) $(LDLIBS) -o tic-tac-toe
 
-out: $(OBJS)
-	gcc $(OBJS) $(LIBS) -o src/out
-
-%.o: %.c 
-	gcc $(CFLAGS) -c $^ -o $@
-
-
-.PHONY: clean distclean
-clean:
-	rm src/*.o
-	rm src/out
+.PHONY: clean
+clean :
+	rm $(OBJS)
 	rm tic-tac-toe
-
-distclean:
-	find . -name *~ -delete
-	find src/ -name *~ -delete
